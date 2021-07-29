@@ -1,24 +1,17 @@
-import logo from './logo.svg';
+import React from 'react';
+import CounterApp from './components/CounterApp';
+import { Provider } from 'react-redux';
+import { store } from './store';
 import './App.css';
 
+//The Provider component makes the Redux store available to any nested components that need to access it! This is why it is usually rendered at the top level with the rest of the app inside of it. 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <CounterApp />
+      </div>
+    </Provider>
   );
 }
 
